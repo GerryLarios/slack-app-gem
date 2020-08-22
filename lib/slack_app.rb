@@ -1,6 +1,12 @@
-require "slack_app/version"
+require 'slack_app/version'
+require 'slack_app/api'
 
 module SlackApp
-  class Error < StandardError; end
-  # Your code goes here...
+  def self.api
+    SlackApp::API
+  end
+
+  def self.configure(&block)
+    SlackApp::Configuration.configure(&block)
+  end
 end

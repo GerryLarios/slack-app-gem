@@ -1,5 +1,8 @@
-require "bundler/setup"
-require "slack_app"
+require 'bundler/setup'
+# require 'webmock/rspec'
+require 'slack_app'
+
+# WebMock.disable_net_connect!(allow_localhost: true)
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure
@@ -11,4 +14,12 @@ RSpec.configure do |config|
   config.expect_with :rspec do |c|
     c.syntax = :expect
   end
+
+  # # Webmock slack
+  # config.before(:each) do
+  #   config = SlackApp::Configuration.config
+  #   stub_request(:any, config.endpoint)
+  #     .with(headers: { 'Authorization': "Bearer #{config.token}" })
+  #     .to_return(status: 200, body: { 'ok': true })
+  # end
 end

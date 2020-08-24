@@ -28,4 +28,5 @@ Gem::Specification.new do |spec|
   
   # Dependencies
   spec.add_runtime_dependency 'httparty', '~> 0.18.1'
+  spec.add_development_dependency 'webmock', '~> 3.8', '>= 3.8.3'
 end
